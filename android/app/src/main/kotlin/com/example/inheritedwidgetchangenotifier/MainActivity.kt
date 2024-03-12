@@ -1,4 +1,4 @@
-package com.example.inheritedwidgetchangenotifier
+package com.example.statemanagement
 
 import io.flutter.embedding.android.FlutterActivity
 

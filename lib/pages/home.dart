@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'InheritedModel/inherited_model_page.dart';
 import 'InheritedWidget/inherited_widget_page.dart';
+import 'inheritedNotifier/inherited_notifier_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -21,13 +22,21 @@ class Home extends StatelessWidget {
               ),
               child: const Text("Inherited Widget"),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (builder) => const InheritedModelPage()),
               ),
               child: const Text("Inherited Model"),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (builder) => const InheritedNotifierPage()),
+              ),
+              child: const Text("Inherited Notifier"),
             ),
           ],
         ),

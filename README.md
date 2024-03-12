@@ -1,16 +1,19 @@
-# inheritedwidgetchangenotifier
+# Flutter State Management
 
-A new Flutter project.
+A Flutter State Management Project.
 
-## Getting Started
+## Flutter In Built
 
-This project is a starting point for a Flutter application.
+- Inherited Widget
+- Inherited Model
+- Change Notifier
+- Value Notifier
+- Inherited Notifier
 
-A few resources to get you started if this is your first Flutter project:
+## Flutter Packages
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Provider
+- Riverpod
+- Flutter Bloc
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is a starting point for a managing states in flutter applications.

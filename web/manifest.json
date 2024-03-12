@@ -1,6 +1,6 @@
 {
-    "name": "inheritedwidgetchangenotifier",
-    "short_name": "inheritedwidgetchangenotifier",
+    "name": "statemanagement",
+    "short_name": "statemanagement",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
