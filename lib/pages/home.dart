@@ -1,44 +1,36 @@
 import 'package:flutter/material.dart';
 
-import 'count_down_inherited.dart';
-import 'first_page.dart';
-import 'second_page.dart';
+import 'InheritedModel/inherited_model_page.dart';
+import 'InheritedWidget/inherited_widget_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final inherited = CountDownInherited.of(context);
-
     return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text("Counter: ${inherited.counter}")),
-            const SizedBox(height: 50),
+            const SizedBox(width: double.maxFinite),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (builder) => const FirstPage()),
+                MaterialPageRoute(builder: (builder) => const InheritedWidgetPage()),
               ),
-              child: const Text("First Page"),
+              child: const Text("Inherited Widget"),
             ),
             const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (builder) => const SecondPage()),
+                MaterialPageRoute(builder: (builder) => const InheritedModelPage()),
               ),
-              child: const Text("Second Page"),
+              child: const Text("Inherited Model"),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => inherited.add(),
-        child: const Icon(Icons.add_rounded),
       ),
     );
   }
