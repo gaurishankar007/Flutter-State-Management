@@ -1,6 +1,6 @@
 {
-    "name": "statemanagement",
-    "short_name": "statemanagement",
+    "name": "state",
+    "short_name": "state",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

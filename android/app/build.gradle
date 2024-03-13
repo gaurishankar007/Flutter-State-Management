@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.statemanagement"
+    namespace "com.example.state"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
