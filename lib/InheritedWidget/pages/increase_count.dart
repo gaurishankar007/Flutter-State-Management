@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../inherited/count_inherited_widget.dart';
+import '../count_inherited_widget.dart';
 
-class DecreaseCount extends StatelessWidget {
-  const DecreaseCount({super.key});
+class IncreaseCount extends StatelessWidget {
+  const IncreaseCount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class DecreaseCount extends StatelessWidget {
         const Text("Sub Widget"),
         const SizedBox(height: 10),
         ElevatedButton(
-          onPressed: () => inherited.subtract(),
-          child: const Text("Decrease"),
+          onPressed: () => inherited.add(),
+          child: const Text("Increase"),
         ),
         const SizedBox(height: 10),
         Text("Counter: ${inherited.counter}"),

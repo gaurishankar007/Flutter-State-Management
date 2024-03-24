@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../notifier/count_inherited_notifier.dart';
-import '../../notifier/count_value_notifier.dart';
+import '../color_change_notifier.dart';
+import '../color_inherited_notifier.dart';
 
 class InheritedNotifierPage extends StatefulWidget {
   const InheritedNotifierPage({super.key});
@@ -11,36 +11,31 @@ class InheritedNotifierPage extends StatefulWidget {
 }
 
 class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
-  final notifier = CountValueNotifier();
+  final notifier = ColorChangeNotifier();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inherited Notifier With Value Notifier"),
+        title: const Text("Inherited Notifier With Change Notifier"),
       ),
       body: SafeArea(
-        child: CountInheritedNotifier(
+        child: ColorInheritedNotifier(
           notifier: notifier,
           child: Builder(
             builder: (context) {
-              final count = CountInheritedNotifier.of(context);
+              final color = ColorInheritedNotifier.of(context);
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(width: double.maxFinite),
                   const Text("Inherited Notifier is provided in this page."),
                   const SizedBox(height: 50),
-                  Text("Counter: $count"),
+                  Container(height: 200, width: 200, color: color),
                   const SizedBox(height: 50),
                   ElevatedButton(
-                    onPressed: () => notifier.add(),
-                    child: const Text("increase"),
-                  ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () => notifier.subtract(),
-                    child: const Text("Decrease"),
+                    onPressed: () => notifier.changeColor(),
+                    child: const Text("Change Color"),
                   ),
                 ],
               );

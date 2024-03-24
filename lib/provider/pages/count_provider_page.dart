@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../count_provider.dart';
 import 'buttons.dart';
 import 'cheap_count_widget.dart';
 import 'count_widget.dart';
 import 'expensive_count_widget.dart';
-
-import '../../providers/count_provider.dart';
 
 class CountProviderPage extends StatelessWidget {
   const CountProviderPage({super.key});

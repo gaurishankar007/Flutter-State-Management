@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/count_provider.dart';
+import '../count_provider.dart';
 
 class Buttons extends StatefulWidget {
   const Buttons({super.key});

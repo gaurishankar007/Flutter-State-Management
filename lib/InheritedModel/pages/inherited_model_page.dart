@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../inherited/count_inherited_model.dart';
-import '../../notifier/count_notifier.dart';
+import '../count_change_notifier.dart';
+import '../count_inherited_model.dart';
 import 'counter1_value.dart';
 import 'counter2_value.dart';
 

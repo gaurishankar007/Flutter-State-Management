@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'InheritedModel/inherited_model_page.dart';
-import 'InheritedWidget/inherited_widget_page.dart';
-import 'inheritedNotifier/inherited_notifier_page.dart';
-import 'providerPage/count_provider_page.dart';
+import 'InheritedModel/pages/inherited_model_page.dart';
+import 'InheritedWidget/pages/inherited_widget_page.dart';
+import 'inheritedNotifier/pages/inherited_notifier_page.dart';
+import 'provider/pages/count_provider_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

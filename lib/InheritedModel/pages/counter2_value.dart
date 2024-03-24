@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../inherited/count_inherited_model.dart';
+import '../count_inherited_model.dart';
 
 class Counter2Value extends StatelessWidget {
   const Counter2Value({super.key});
