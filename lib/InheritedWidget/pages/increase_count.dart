@@ -10,7 +10,7 @@ class IncreaseCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inherited = CountInheritedWidget.of(context);
-    log("Count Increased");
+    log("Count Changed ++");
 
     return Column(
       children: [

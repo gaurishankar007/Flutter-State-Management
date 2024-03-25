@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../color_change_notifier.dart';
 import '../color_inherited_notifier.dart';
 
 class InheritedNotifierPage extends StatefulWidget {
-  const InheritedNotifierPage({super.key});
+  final String title;
+  const InheritedNotifierPage({super.key, required this.title});
 
   @override
   State<InheritedNotifierPage> createState() => _InheritedNotifierPageState();
@@ -19,7 +21,8 @@ class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inherited Notifier With Change Notifier"),
+        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
+        title: Text(widget.title),
       ),
       body: SafeArea(
         child: ColorInheritedNotifier(

@@ -30,6 +30,7 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
     on<LoadColorEvent>(_loadColors);
     on<ChangeColorEvent>(_changeColor);
     on<SearchColorEvent>(_searchColor);
+    on<ResetColorEvent>(_resetColors);
   }
 
   ColorLoaded get _loadedState => ColorLoaded(colors: colors, color: color);
@@ -66,5 +67,11 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
     });
 
     emit(_loadedState.copyWith(colors: searchedColors));
+  }
+
+  _resetColors(ResetColorEvent event, emit) {
+    color = Colors.black;
+    colors = _colorMap.values.map((e) => e).toList();
+    emit(_loadedState);
   }
 }

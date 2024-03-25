@@ -14,3 +14,5 @@ class SearchColorEvent extends ColorEvent {
 
   const SearchColorEvent({required this.queries});
 }
+
+class ResetColorEvent extends ColorEvent {}

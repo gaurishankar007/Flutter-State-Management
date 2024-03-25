@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../count_inherited_widget.dart';
 import '../count_value_notifier.dart';
@@ -6,7 +7,8 @@ import 'decrease_count.dart';
 import 'increase_count.dart';
 
 class InheritedWidgetPage extends StatefulWidget {
-  const InheritedWidgetPage({super.key});
+  final String title;
+  const InheritedWidgetPage({super.key, required this.title});
 
   @override
   State<InheritedWidgetPage> createState() => _InheritedWidgetPageState();
@@ -19,7 +21,8 @@ class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inherited Widget With Value Notifier"),
+        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
+        title: Text(widget.title),
       ),
       body: SafeArea(
         child: ValueListenableBuilder(

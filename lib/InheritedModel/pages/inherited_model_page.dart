@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../count_change_notifier.dart';
 import '../count_inherited_model.dart';
@@ -6,7 +7,8 @@ import 'counter1_value.dart';
 import 'counter2_value.dart';
 
 class InheritedModelPage extends StatefulWidget {
-  const InheritedModelPage({super.key});
+  final String title;
+  const InheritedModelPage({super.key, required this.title});
 
   @override
   State<InheritedModelPage> createState() => _InheritedModelPageState();
@@ -19,7 +21,8 @@ class _InheritedModelPageState extends State<InheritedModelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inherited Model With Change Notifier"),
+        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
+        title: Text(widget.title),
       ),
       body: SafeArea(
         child: ListenableBuilder(
