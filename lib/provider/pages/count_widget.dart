@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,9 +10,10 @@ class CountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Watch listen to the changes
+    /// "Watch" listens to the changes
     final countProvider = context.watch<CountProvider>();
     final lastUpdated = DateTime.now().toIso8601String();
+    log("Provider Updated");
 
     return Container(
       padding: const EdgeInsets.all(10),

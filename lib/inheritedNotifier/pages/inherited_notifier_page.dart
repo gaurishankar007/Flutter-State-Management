@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../color_change_notifier.dart';
@@ -25,6 +27,8 @@ class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
           child: Builder(
             builder: (context) {
               final color = ColorInheritedNotifier.of(context);
+              log("Color updated");
+
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -15,9 +15,7 @@ class CountProviderPage extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => CountProvider(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Provider"),
-        ),
+        appBar: AppBar(title: const Text("Provider")),
         body: const SafeArea(
           child: Column(
             children: [

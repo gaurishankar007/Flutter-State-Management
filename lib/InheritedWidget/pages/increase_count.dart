@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../count_inherited_widget.dart';
@@ -8,6 +10,7 @@ class IncreaseCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inherited = CountInheritedWidget.of(context);
+    log("Count Increased");
 
     return Column(
       children: [

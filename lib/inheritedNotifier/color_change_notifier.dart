@@ -11,6 +11,11 @@ class ColorChangeNotifier extends ChangeNotifier {
     Colors.purple,
     Colors.pink,
     Colors.orange,
+    Colors.brown,
+    Colors.yellow,
+    Colors.amber,
+    Colors.cyan,
+    Colors.teal,
   ];
   Color color = Colors.green;
 
@@ -19,7 +24,7 @@ class ColorChangeNotifier extends ChangeNotifier {
   changeColor() {
     int index = Random().nextInt(_colors.length);
     Color newColor = _colors[index];
-    
+
     if (newColor != color) {
       color = newColor;
       notifyListeners();

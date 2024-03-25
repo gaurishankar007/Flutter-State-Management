@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +15,7 @@ class ExpensiveCountWidget extends StatelessWidget {
       (provider) => provider.expensiveCount,
     );
     final lastUpdated = DateTime.now().toIso8601String();
-    debugPrint("Expensive Count Updated");
+    log("Expensive Count Updated");
 
     return Container(
       padding: const EdgeInsets.all(10),

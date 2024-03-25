@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +16,7 @@ class CheapCountWidget extends StatelessWidget {
       (provider) => provider.cheapCount,
     );
     final lastUpdated = DateTime.now().toIso8601String();
-    debugPrint("Cheap Count Updated");
+    log("Cheap Count Updated");
 
     return Container(
       padding: const EdgeInsets.all(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'color_change_notifier.dart';
 
 class ColorInheritedNotifier extends InheritedNotifier<ColorChangeNotifier> {
