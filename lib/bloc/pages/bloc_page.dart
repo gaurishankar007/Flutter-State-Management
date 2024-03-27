@@ -32,11 +32,11 @@ class _BlocPageState extends State<BlocPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Bloc")),
-      body: const SafeArea(
-        child: Column(
-          children: [
+      body: SafeArea(
+        child: ListView(
+          children: const [
             SizedBox(height: 20),
-            Text("Bloc is provided before initializing material app."),
+            Center(child: Text("Bloc is provided before initializing material app.")),
             SizedBox(height: 30),
             BlocChangesListener(),
             SizedBox(height: 50, width: double.maxFinite),

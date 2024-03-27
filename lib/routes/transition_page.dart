@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 CustomTransitionPage transitionPage({
+  required LocalKey key,
   required Widget child,
   required AxisDirection direction,
 }) {
@@ -26,7 +27,9 @@ CustomTransitionPage transitionPage({
   }
 
   return CustomTransitionPage(
+    key: key,
     child: child,
+    maintainState: true,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return SlideTransition(
         position: Tween<Offset>(

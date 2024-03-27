@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../riverpod/pages/count_future_provider_page.dart';
+import '../riverpod/pages/count_state_provider_page.dart';
+import '../riverpod/pages/count_stream_provider_page.dart';
+import '../riverpod/pages/film_state_notifier_provider_page.dart';
+import '../riverpod/pages/person_change_notifier_provider_page.dart';
+import '../riverpod/pages/riverpod_page.dart';
+import 'go_router_observer.dart';
+
+import '../InheritedModel/pages/inherited_model_page.dart';
 import '../InheritedWidget/pages/inherited_widget_page.dart';
 import '../bloc/pages/bloc_page.dart';
+import '../inheritedNotifier/pages/inherited_notifier_page.dart';
 import '../provider/pages/count_provider_page.dart';
-import 'transition_page.dart';
 import '../screens/flutter_in_built.dart';
 import '../screens/flutter_package.dart';
 import '../screens/home.dart';
 import '../screens/login_dart.dart';
-
-import '../InheritedModel/pages/inherited_model_page.dart';
-import '../inheritedNotifier/pages/inherited_notifier_page.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 bool isLoggedIn = false;
@@ -20,6 +26,7 @@ GoRouter get goRouter {
     navigatorKey: rootNavigatorKey,
     initialLocation: "/flutter",
     errorBuilder: (context, state) => errorScreen(state.error.toString()),
+    observers: [GoRouterObserver()],
     routes: [
       ShellRoute(
         builder: (context, state, child) => Home(child: child),
@@ -33,6 +40,11 @@ GoRouter get goRouter {
             path: "/package",
             name: "package",
             builder: (context, state) => const FlutterPackage(),
+          ),
+          GoRoute(
+            path: "/login",
+            name: "login",
+            builder: (context, state) => const Login(),
           ),
         ],
       ),
@@ -69,24 +81,44 @@ GoRouter get goRouter {
         },
         redirect: (context, state) {
           if (isLoggedIn) return null;
+          navBarIndex.value = 2;
           return "/login";
         },
       ),
       GoRoute(
         path: "/bloc",
         name: "bloc",
-        pageBuilder: (context, state) => transitionPage(
-          child: const BlocPage(),
-          direction: AxisDirection.left,
-        ),
+        builder: (context, state) => const BlocPage(),
       ),
       GoRoute(
-        path: "/login",
-        name: "login",
-        pageBuilder: (context, state) => transitionPage(
-          child: const Login(),
-          direction: AxisDirection.left,
-        ),
+        path: "/riverpod",
+        name: "riverpod",
+        builder: (context, state) => const RiverpodPage(),
+      ),
+      GoRoute(
+        path: "/stateProvider",
+        name: "state provider",
+        builder: (context, state) => const CountStateProviderPage(),
+      ),
+      GoRoute(
+        path: "/futureProvider",
+        name: "future provider",
+        builder: (context, state) => const CountFutureProviderPage(),
+      ),
+      GoRoute(
+        path: "/streamProvider",
+        name: "stream provider",
+        builder: (context, state) => const CountStreamProviderPage(),
+      ),
+      GoRoute(
+        path: "/changeNotifierProvider",
+        name: "change notifier provider",
+        builder: (context, state) => PersonChangeNotifierProviderPage(),
+      ),
+      GoRoute(
+        path: "/stateNotifierProvider",
+        name: "state notifier provider",
+        builder: (context, state) => const FilmStateNotifierProviderPage(),
       ),
     ],
   );

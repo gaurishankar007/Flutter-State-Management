@@ -60,7 +60,7 @@ class SelectedColor extends StatelessWidget {
                 return false;
               },
               builder: (context, isGreenColor) {
-                if (isGreenColor) log("Green Color Selected");
+                log("Green Color Selected");
                 return Checkbox(
                   value: isGreenColor,
                   activeColor: Colors.green,

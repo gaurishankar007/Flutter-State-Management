@@ -29,8 +29,8 @@ class FlutterPackage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.pushNamed("login"),
-              child: const Text("Login Page"),
+              onPressed: () => context.pushNamed("riverpod"),
+              child: const Text("Riverpod"),
             ),
           ],
         ),

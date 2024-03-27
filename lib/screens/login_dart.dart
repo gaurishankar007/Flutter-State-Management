@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../routes/go_router.dart';
 
@@ -23,7 +22,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
+        leading: const SizedBox.shrink(),
         title: const Text("Login to navigate to provider page"),
       ),
       body: SafeArea(

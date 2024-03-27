@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'bloc/bloc/color_bloc.dart';
 import 'routes/go_router.dart';
 
 void main() {
-  runApp(const InheritedApp());
+  runApp(
+    /// Provider scope will provide access to riverpod provides across the widget tree
+    const ProviderScope(
+      child: InheritedApp(),
+    ),
+  );
 }
 
 class InheritedApp extends StatelessWidget {

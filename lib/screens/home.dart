@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+final navBarIndex = ValueNotifier<int>(0);
+
 class Home extends StatefulWidget {
   final Widget child;
   const Home({super.key, required this.child});
@@ -10,8 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final navBarIndex = ValueNotifier<int>(0);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +31,10 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.business_outlined),
                 label: "Package",
               ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.login),
+                label: "Login",
+              ),
             ],
           );
         },
@@ -49,6 +53,9 @@ class _HomeState extends State<Home> {
 
       case 1:
         return context.goNamed("package");
+
+      case 2:
+        return context.goNamed("login");
 
       default:
         return;
