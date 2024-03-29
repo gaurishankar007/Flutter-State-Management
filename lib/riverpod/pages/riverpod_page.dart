@@ -12,7 +12,6 @@ class RiverpodPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 20),
             const Center(child: Text("Riverpod is provided in main app with provider scope.")),
             const SizedBox(height: 30),
             ElevatedButton(

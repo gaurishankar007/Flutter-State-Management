@@ -4,14 +4,10 @@ import 'color_change_notifier.dart';
 
 class ColorInheritedNotifier extends InheritedNotifier<ColorChangeNotifier> {
   const ColorInheritedNotifier({
-    Key? key,
-    required ColorChangeNotifier notifier,
-    required Widget child,
-  }) : super(
-          key: key,
-          notifier: notifier,
-          child: child,
-        );
+    super.key,
+    required ColorChangeNotifier super.notifier,
+    required super.child,
+  });
 
   static Color of(BuildContext context) {
     final inheritedNotifier = context.dependOnInheritedWidgetOfExactType<ColorInheritedNotifier>();
