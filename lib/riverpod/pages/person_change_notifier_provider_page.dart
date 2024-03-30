@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,30 +15,46 @@ class PersonChangeNotifierProviderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("State Notifier Provider"),
-      ),
+      appBar: AppBar(title: const Text("State Notifier Provider")),
       body: SafeArea(
-        child: Consumer(
-          builder: (context, ref, child) {
-            final personNotifier = ref.watch(personChangeNotifierProvider);
+        child: Column(
+          children: [
+            Consumer(
+              builder: (context, ref, child) {
+                // Whenever the length of the persons is changed, then only it will be rebuilt
+                final personLength = ref.watch(personChangeNotifierProvider
+                    .select((personChangeNotifier) => personChangeNotifier.persons.length));
+                log("Person length: $personLength");
 
-            return ListView.separated(
-              itemCount: personNotifier.count,
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
-              itemBuilder: (context, index) {
-                final person = personNotifier.persons[index];
+                return Text("Total Persons: $personLength");
+              },
+            ),
+            const SizedBox(height: 30),
+            Consumer(
+              builder: (context, ref, child) {
+                final personNotifier = ref.watch(personChangeNotifierProvider);
+                log("Persons");
 
-                return ListTile(
-                  onTap: () async {
-                    final updatedPerson = await createOrUpdatePerson(context, person);
-                    if (updatedPerson != null) personNotifier.update(updatedPerson);
-                  },
-                  title: Text(person.displayData),
+                return Expanded(
+                  child: ListView.separated(
+                    itemCount: personNotifier.count,
+                    separatorBuilder: (context, index) => const SizedBox(height: 10),
+                    itemBuilder: (context, index) {
+                      final person = personNotifier.persons[index];
+
+                      return ListTile(
+                        onTap: () async {
+                          final updatedPerson = await createOrUpdatePerson(context, person);
+                          if (updatedPerson != null) personNotifier.update(updatedPerson);
+                        },
+                        title: Text(person.displayData),
+                      );
+                    },
+                  ),
                 );
               },
-            );
-          },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
