@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 
 part 'color_event.dart';
@@ -29,7 +30,12 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
   ColorBloc() : super(ColorLoading()) {
     on<LoadColorEvent>(_loadColors);
     on<ChangeColorEvent>(_changeColor);
-    on<SearchColorEvent>(_searchColor);
+    on<SearchColorEvent>(
+      _searchColor,
+      /// Adding delay before emitting states
+      transformer: (events, mapper) =>
+          events.debounceTime(const Duration(milliseconds: 1000)).asyncExpand((mapper)),
+    );
     on<ResetColorEvent>(_resetColors);
   }
 
