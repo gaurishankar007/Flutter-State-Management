@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/animal.dart';
 
+import '../model/animal.dart';
 import '../model/person.dart';
 import '../rxBloc/search_result.dart';
 
@@ -20,7 +20,9 @@ class SearchResultView extends StatelessWidget {
           final result = snapshot.data;
 
           if (result is SearchResultError) {
-            return Text("Got Error: ${result.error}");
+            return Text(
+              "Got Error: ${result.error} (May Be Live server is not on for the json files)",
+            );
           } else if (result is SearchResultLoading) {
             return const CircularProgressIndicator();
           } else if (result is SearchResultEmpty) {

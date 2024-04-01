@@ -12,18 +12,20 @@ class RxDartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Behavior Subject State management"),
-            const SizedBox(height: 10, width: double.maxFinite),
             ElevatedButton(
               onPressed: () => context.push("/stringStreaming"),
-              child: const Text("String Streaming"),
+              child: const Text("String Streaming (BehaviorSubject)"),
+            ),
+            const SizedBox(height: 30, width: double.maxFinite),
+            ElevatedButton(
+              onPressed: () => context.push("/stateStreaming"),
+              child: const Text("State Streaming (BehaviorSubject)"),
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.push("/stateStreaming"),
-              child: const Text("State Streaming"),
+              onPressed: () => context.push("/streamCombination"),
+              child: const Text("Stream Combination"),
             ),
-            const SizedBox(height: 30),
           ],
         ),
       ),

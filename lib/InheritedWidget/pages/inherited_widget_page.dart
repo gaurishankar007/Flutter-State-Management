@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../count_inherited_widget.dart';
 import '../count_value_notifier.dart';
-import 'decrease_count.dart';
-import 'increase_count.dart';
+import '../widgets/decrease_count.dart';
+import '../widgets/increase_count.dart';
 
 class InheritedWidgetPage extends StatefulWidget {
   final String title;

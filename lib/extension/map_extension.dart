@@ -6,7 +6,7 @@ void main() {
     "age": 20,
   };
 
-  final String age = map.find("age", (age) => "Your age is $age.");
+  final String age = map.find<int>("age", (age) => "Your age is $age.");
   final String address = map.find("agee", (address) => "Your address is $address.");
 
   log(age);

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../bloc/color_bloc.dart';
-import 'available_colors.dart';
-import 'bloc_changes_listener.dart';
-import 'selected_color.dart';
+import '../widgets/available_colors.dart';
+import '../widgets/bloc_changes_listener.dart';
+import '../widgets/selected_color.dart';
 
 class BlocPage extends StatefulWidget {
   const BlocPage({super.key});

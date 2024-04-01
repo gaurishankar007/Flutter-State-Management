@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../rxDart/pages/rx_dart_page.dart';
-import '../rxDart/pages/string_streaming.dart';
+import 'package:state/rxDart/pages/stream_combination.dart';
 
 import '../InheritedModel/pages/inherited_model_page.dart';
 import '../InheritedWidget/pages/inherited_widget_page.dart';
@@ -14,7 +13,9 @@ import '../riverpod/pages/count_stream_provider_page.dart';
 import '../riverpod/pages/film_state_notifier_provider_page.dart';
 import '../riverpod/pages/person_change_notifier_provider_page.dart';
 import '../riverpod/pages/riverpod_page.dart';
+import '../rxDart/pages/rx_dart_page.dart';
 import '../rxDart/pages/state_streaming.dart';
+import '../rxDart/pages/string_streaming.dart';
 import '../screens/flutter_in_built.dart';
 import '../screens/flutter_package.dart';
 import '../screens/home.dart';
@@ -131,12 +132,17 @@ GoRouter get goRouter {
       GoRoute(
         path: "/stringStreaming",
         name: "string streaming",
-        builder: (context, state) => const StringStreaming(),
+        builder: (context, state) => const StringStreamingPage(),
       ),
       GoRoute(
         path: "/stateStreaming",
         name: "state streaming",
-        builder: (context, state) => const StateStreaming(),
+        builder: (context, state) => const StateStreamingPage(),
+      ),
+      GoRoute(
+        path: "/streamCombination",
+        name: "stream combination",
+        builder: (context, state) => const StreamCombinationPage(),
       ),
     ],
   );

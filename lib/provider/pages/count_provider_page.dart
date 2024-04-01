@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../count_provider.dart';
-import 'buttons.dart';
-import 'cheap_count_widget.dart';
-import 'count_widget.dart';
-import 'expensive_count_widget.dart';
+import '../widgets/buttons.dart';
+import '../widgets/cheap_count_widget.dart';
+import '../widgets/count_widget.dart';
+import '../widgets/expensive_count_widget.dart';
 
 class CountProviderPage extends StatelessWidget {
   final String title;

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
-class StringStreaming extends StatefulWidget {
-  const StringStreaming({super.key});
+class StringStreamingPage extends StatefulWidget {
+  const StringStreamingPage({super.key});
 
   @override
-  State<StringStreaming> createState() => _StringStreamingState();
+  State<StringStreamingPage> createState() => _StringStreamingPageState();
 }
 
-class _StringStreamingState extends State<StringStreaming> {
+class _StringStreamingPageState extends State<StringStreamingPage> {
   late final BehaviorSubject<String> behaviorSubject;
 
   @override

@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../count_change_notifier.dart';
 import '../count_inherited_model.dart';
-import 'counter1_value.dart';
-import 'counter2_value.dart';
+import '../widgets/counter1_value.dart';
+import '../widgets/counter2_value.dart';
 
 class InheritedModelPage extends StatefulWidget {
   final String title;

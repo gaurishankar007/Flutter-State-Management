@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'search_result_view.dart';
-import '../rxBloc/api.dart';
-import '../rxBloc/search_bloc.dart';
 
-class StateStreaming extends StatefulWidget {
-  const StateStreaming({super.key});
+import '../repository/api.dart';
+import '../rxBloc/search_bloc.dart';
+import '../widgets/search_result_view.dart';
+
+class StateStreamingPage extends StatefulWidget {
+  const StateStreamingPage({super.key});
 
   @override
-  State<StateStreaming> createState() => _StateStreamingState();
+  State<StateStreamingPage> createState() => _StateStreamingPageState();
 }
 
-class _StateStreamingState extends State<StateStreaming> {
+class _StateStreamingPageState extends State<StateStreamingPage> {
   late final SearchBloc _searchBloc;
 
   @override
