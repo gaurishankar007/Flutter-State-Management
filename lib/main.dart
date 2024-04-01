@@ -6,12 +6,8 @@ import 'bloc/bloc/color_bloc.dart';
 import 'routes/go_router.dart';
 
 void main() {
-  runApp(
-    /// Provider scope will provide access to riverpod provides across the widget tree
-    const ProviderScope(
-      child: InheritedApp(),
-    ),
-  );
+  /// Provider scope will provide access to riverpod provides across the widget tree
+  runApp(const ProviderScope(child: InheritedApp()));
 }
 
 class InheritedApp extends StatelessWidget {

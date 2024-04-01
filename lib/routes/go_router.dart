@@ -17,6 +17,7 @@ import '../rxDart/pages/rx_dart_page.dart';
 import '../rxDart/pages/state_streaming.dart';
 import '../rxDart/pages/stream_combination.dart';
 import '../rxDart/pages/string_streaming.dart';
+import '../rxDart/pages/text_field_validation.dart';
 import '../screens/flutter_in_built.dart';
 import '../screens/flutter_package.dart';
 import '../screens/home.dart';
@@ -30,9 +31,16 @@ GoRouter get goRouter {
   return GoRouter(
     navigatorKey: rootNavigatorKey,
     initialLocation: "/flutter",
-    errorBuilder: (context, state) => errorScreen(state.error.toString()),
+    errorBuilder: (context, state) => Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Text(state.error.toString()),
+        ),
+      ),
+    ),
     observers: [GoRouterObserver()],
     routes: [
+      /// <====== Navigator ======>
       ShellRoute(
         builder: (context, state, child) => Home(child: child),
         routes: [
@@ -53,6 +61,8 @@ GoRouter get goRouter {
           ),
         ],
       ),
+
+      /// <====== State Management With In Built Flutter Methods And Functions ======>
       GoRoute(
         path: "/inheritedWidget/:title",
         name: "inheritedWidget",
@@ -77,6 +87,9 @@ GoRouter get goRouter {
           return InheritedNotifierPage(title: title);
         },
       ),
+
+      /// <====== State Management With Packages ======>
+      /// <====== Provider ======>
       GoRoute(
         path: "/provider",
         name: "provider",
@@ -90,11 +103,15 @@ GoRouter get goRouter {
           return "/login";
         },
       ),
+
+      /// <====== Bloc ======>
       GoRoute(
         path: "/bloc",
         name: "bloc",
         builder: (context, state) => const BlocPage(),
       ),
+
+      /// <====== Riverpod ======>
       GoRoute(
         path: "/riverpod",
         name: "riverpod",
@@ -125,6 +142,8 @@ GoRouter get goRouter {
         name: "state notifier provider",
         builder: (context, state) => const FilmStateNotifierProviderPage(),
       ),
+
+      /// <====== Rx Dart ======>
       GoRoute(
         path: "/rxDart",
         name: "rxDart",
@@ -150,12 +169,11 @@ GoRouter get goRouter {
         name: "filter streaming",
         builder: (context, state) => const FilterStreamingPage(),
       ),
+      GoRoute(
+        path: "/textFieldValidation",
+        name: "text field validation",
+        builder: (context, state) => const TextFieldValidationPage(),
+      ),
     ],
   );
 }
-
-Widget errorScreen(String error) => Scaffold(
-      body: SafeArea(
-        child: Center(child: Text(error)),
-      ),
-    );
