@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../repository/api.dart';
-import '../rxBloc/search_bloc.dart';
+import '../rxBloc/search/search_bloc.dart';
 import '../widgets/search_result_view.dart';
 
 class StateStreamingPage extends StatefulWidget {

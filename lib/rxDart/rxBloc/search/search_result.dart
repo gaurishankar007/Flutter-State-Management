@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
-import '../model/thing.dart';
+import '../../model/thing.dart';
 
 @immutable
 abstract class SearchResult {

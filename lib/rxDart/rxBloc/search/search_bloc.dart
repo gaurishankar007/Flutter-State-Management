@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:rxdart/rxdart.dart';
 
-import '../model/thing.dart';
-import '../repository/api.dart';
+import '../../model/thing.dart';
+import '../../repository/api.dart';
 import 'search_result.dart';
 
 /// It is not a flutter_bloc or any other package
@@ -16,6 +16,7 @@ class SearchBloc {
   /// The factory constructor will create these instance parameters
   const SearchBloc._({required this.search, required this.results});
 
+  /// Sink always should be disposed
   void dispose() {
     search.close();
   }

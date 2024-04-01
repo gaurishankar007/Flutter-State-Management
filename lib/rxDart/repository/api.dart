@@ -1,16 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../model/thing.dart';
-
 import '../model/animal.dart';
-import '../model/person.dart';
+import '../model/man.dart';
+import '../model/thing.dart';
 
 typedef SearchTerm = String;
 
 class Api {
   List<Animal>? _animals;
-  List<Person>? _persons;
+  List<Man>? _persons;
   Api();
 
   Future<List<Thing>> search(SearchTerm searchTerm) async {
@@ -22,7 +21,7 @@ class Api {
 
     // start calling api
     final persons = await _getJson("http://192.168.1.80:5500/lib/rxDart/json/persons.json")
-        .then((json) => json.map((e) => Person.fromJson(e)));
+        .then((json) => json.map((e) => Man.fromJson(e)));
     _persons = persons.toList();
 
     final animals = await _getJson("http://192.168.1.80:5500/lib/rxDart/json/animals.json")

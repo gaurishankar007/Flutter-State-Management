@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../model/animal.dart';
-import '../model/person.dart';
-import '../rxBloc/search_result.dart';
+import '../model/man.dart';
+import '../rxBloc/search/search_result.dart';
 
 class SearchResultView extends StatelessWidget {
   final Stream<SearchResult?> searchResult;
@@ -40,7 +40,7 @@ class SearchResultView extends StatelessWidget {
 
                   if (item is Animal) {
                     title = 'Animal';
-                  } else if (item is Person) {
+                  } else if (item is Man) {
                     title = 'Person';
                   } else {
                     title = "Unknown";

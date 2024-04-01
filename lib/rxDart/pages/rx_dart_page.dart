@@ -13,6 +13,11 @@ class RxDartPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
+              onPressed: () => context.push("/streamCombination"),
+              child: const Text("Stream Combination"),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
               onPressed: () => context.push("/stringStreaming"),
               child: const Text("String Streaming (BehaviorSubject)"),
             ),
@@ -23,8 +28,8 @@ class RxDartPage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.push("/streamCombination"),
-              child: const Text("Stream Combination"),
+              onPressed: () => context.push("/filterStreaming"),
+              child: const Text("Filter Streaming (Behavior Subject)"),
             ),
           ],
         ),
