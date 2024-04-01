@@ -16,6 +16,7 @@ import '../rxDart/pages/filter_streaming.dart';
 import '../rxDart/pages/rx_dart_page.dart';
 import '../rxDart/pages/state_streaming.dart';
 import '../rxDart/pages/stream_combination.dart';
+import '../rxDart/pages/string_concatenation.dart';
 import '../rxDart/pages/string_streaming.dart';
 import '../rxDart/pages/text_field_validation.dart';
 import '../screens/flutter_in_built.dart';
@@ -148,6 +149,11 @@ GoRouter get goRouter {
         path: "/rxDart",
         name: "rxDart",
         builder: (context, state) => const RxDartPage(),
+      ),
+      GoRoute(
+        path: "/stringConcatenation",
+        name: "string concatenation",
+        builder: (context, state) => const StringConcatenationPage(),
       ),
       GoRoute(
         path: "/stringStreaming",

@@ -29,11 +29,11 @@ class _TextFieldValidationPageState extends State<TextFieldValidationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Validate Text Field with RxDart')),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            TextField(
+      body: Column(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .7,
+            child: TextField(
               onChanged: bloc.setFirstName.add,
               decoration: const InputDecoration(
                 hintText: 'Enter first name here...',
@@ -41,8 +41,11 @@ class _TextFieldValidationPageState extends State<TextFieldValidationPage> {
                 focusedBorder: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 20),
-            TextField(
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .7,
+            child: TextField(
               onChanged: bloc.setLastName.add,
               decoration: const InputDecoration(
                 hintText: 'Enter last name here...',
@@ -50,15 +53,15 @@ class _TextFieldValidationPageState extends State<TextFieldValidationPage> {
                 focusedBorder: OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 30),
-            AsyncSnapshotBuilder<String>(
-              stream: bloc.fullName,
-              onActive: (context, String? value) {
-                return Text(value ?? '');
-              },
-            )
-          ],
-        ),
+          ),
+          const SizedBox(height: 30),
+          AsyncSnapshotBuilder<String>(
+            stream: bloc.fullName,
+            onActive: (context, String? value) {
+              return Text(value ?? '');
+            },
+          )
+        ],
       ),
     );
   }

@@ -25,6 +25,7 @@ class SearchBloc {
     final textController = BehaviorSubject<String>();
 
     Stream<String> stringStream = textController
+        // Filters duplicate values coming one after another
         .distinct()
         // Waits duration before emitting data
         .debounceTime(const Duration(milliseconds: 500));

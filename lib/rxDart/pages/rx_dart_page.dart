@@ -17,6 +17,11 @@ class RxDartPage extends StatelessWidget {
               child: const Text("Stream Combination"),
             ),
             const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () => context.push("/stringConcatenation"),
+              child: const Text("String Concatenation"),
+            ),
+            const SizedBox(height: 30),
             const Text("Behavior Subject Functionalities"),
             const SizedBox(height: 10),
             ElevatedButton(
