@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:state/buildMechanism/build_mechanism.dart';
 
 import '../InheritedModel/pages/inherited_model_page.dart';
 import '../InheritedWidget/pages/inherited_widget_page.dart';
@@ -64,6 +65,14 @@ GoRouter get goRouter {
       ),
 
       /// <====== State Management With In Built Flutter Methods And Functions ======>
+      GoRoute(
+        path: "/buildMechanism/:title",
+        name: "buildMechanism",
+        builder: (context, state) {
+          final String title = state.pathParameters["title"] ?? "";
+          return BuildMechanism(title: title);
+        },
+      ),
       GoRoute(
         path: "/inheritedWidget/:title",
         name: "inheritedWidget",

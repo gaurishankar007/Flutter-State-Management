@@ -17,6 +17,16 @@ class FlutterInBuilt extends StatelessWidget {
             /// Push or Push Named will push a location to the page stack
             ElevatedButton(
               onPressed: () {
+                String title = "How build works";
+                context.push("/buildMechanism/$title");
+              },
+              child: const Text("Build Mechanism"),
+            ),
+            const SizedBox(height: 30),
+
+            /// Push or Push Named will push a location to the page stack
+            ElevatedButton(
+              onPressed: () {
                 String title = "Inherited Widget With Value Notifier";
                 context.push("/inheritedWidget/$title");
               },
