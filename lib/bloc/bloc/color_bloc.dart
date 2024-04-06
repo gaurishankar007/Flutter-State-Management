@@ -32,6 +32,7 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
     on<ChangeColorEvent>(_changeColor);
     on<SearchColorEvent>(
       _searchColor,
+
       /// Adding delay before emitting states
       transformer: (events, mapper) =>
           events.debounceTime(const Duration(milliseconds: 1000)).asyncExpand((mapper)),
@@ -52,8 +53,10 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
   _changeColor(ChangeColorEvent event, emit) {
     if (state is ColorLoading) return;
 
-    int index = Random().nextInt(colors.length);
-    Color newColor = colors[index];
+    List<Color> colorList = _colorMap.values.map((e) => e).toList();
+
+    int index = Random().nextInt(colorList.length);
+    Color newColor = colorList[index];
 
     if (newColor != color) {
       color = newColor;
@@ -65,12 +68,17 @@ class ColorBloc extends Bloc<ColorEvent, ColorState> {
 
   _searchColor(SearchColorEvent event, emit) {
     String queries = event.queries.trim();
-    if (queries.isEmpty) return emit(_loadedState);
+    if (queries.isEmpty) {
+      colors = _colorMap.values.map((e) => e).toList();
+      return emit(_loadedState);
+    }
 
     List<Color> searchedColors = [];
     _colorMap.forEach((key, value) {
       if (key.contains(queries)) searchedColors.add(value);
     });
+
+    colors = searchedColors;
 
     emit(_loadedState.copyWith(colors: searchedColors));
   }
