@@ -14,6 +14,11 @@ class FlutterPackage extends StatelessWidget {
             const Text("State Management With Packages"),
             const SizedBox(width: double.maxFinite, height: 20),
             ElevatedButton(
+              onPressed: () => context.pushNamed("flutter hooks"),
+              child: const Text("Flutter Hooks"),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
               onPressed: () => context.push(
                 Uri(
                   path: "/provider",

@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
+
 import 'thing.dart';
 
 enum AnimalType { cat, dog, bird, unknown }

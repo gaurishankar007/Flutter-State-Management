@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:state/buildMechanism/build_mechanism.dart';
 
-import '../InheritedModel/pages/inherited_model_page.dart';
-import '../InheritedWidget/pages/inherited_widget_page.dart';
+import '../Inherited_model/pages/inherited_model_page.dart';
+import '../Inherited_widget/pages/inherited_widget_page.dart';
 import '../bloc/pages/bloc_page.dart';
-import '../inheritedNotifier/pages/inherited_notifier_page.dart';
+import '../build_mechanism/build_mechanism.dart';
+import '../hook_widget/hook_example1.dart';
+import '../hook_widget/hook_example2.dart';
+import '../hook_widget/hook_example3.dart';
+import '../hook_widget/hook_example4.dart';
+import '../hook_widget/hook_example5.dart';
+import '../hook_widget/hook_example6.dart';
+import '../hook_widget/hook_example7.dart';
+import '../hook_widget/hooks_page.dart';
+import '../inherited_notifier/pages/inherited_notifier_page.dart';
 import '../provider/pages/count_provider_page.dart';
 import '../riverpod/pages/count_future_provider_page.dart';
 import '../riverpod/pages/count_state_provider_page.dart';
@@ -99,6 +107,48 @@ GoRouter get goRouter {
       ),
 
       /// <====== State Management With Packages ======>
+      /// <====== Flutter Hooks ======>
+      GoRoute(
+        path: "/flutterHooks",
+        name: "flutter hooks",
+        builder: (context, state) => const HooksPage(),
+      ),
+      GoRoute(
+        path: "/hookExample1",
+        name: "hook example1",
+        builder: (context, state) => const HookExample1(),
+      ),
+      GoRoute(
+        path: "/hookExample2",
+        name: "hook example2",
+        builder: (context, state) => const HookExample2(),
+      ),
+      GoRoute(
+        path: "/hookExample3",
+        name: "hook example3",
+        builder: (context, state) => const HookExample3(),
+      ),
+      GoRoute(
+        path: "/hookExample4",
+        name: "hook example4",
+        builder: (context, state) => const HookExample4(),
+      ),
+      GoRoute(
+        path: "/hookExample5",
+        name: "hook example5",
+        builder: (context, state) => const HookExample5(),
+      ),
+      GoRoute(
+        path: "/hookExample6",
+        name: "hook example6",
+        builder: (context, state) => const HookExample6(),
+      ),
+      GoRoute(
+        path: "/hookExample7",
+        name: "hook example7",
+        builder: (context, state) => const HookExample7(),
+      ),
+
       /// <====== Provider ======>
       GoRoute(
         path: "/provider",
