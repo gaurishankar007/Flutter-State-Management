@@ -1,7 +1,7 @@
 # Flutter State Management
 
 A Flutter State Management Project. 
-A Quick look through the functionalities of some solutions provided by flutter itself and packages.
+A Quick look through inside the state management solutions provided by flutter itself and packages.
 
 ## Flutter In Built
 
