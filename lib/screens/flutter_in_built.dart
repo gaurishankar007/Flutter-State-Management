@@ -17,10 +17,10 @@ class FlutterInBuilt extends StatelessWidget {
             /// Push or Push Named will push a location to the page stack
             ElevatedButton(
               onPressed: () {
-                String title = "How build works";
-                context.push("/buildMechanism/$title");
+                String title = "How build works in stateful widget";
+                context.push("/statefulWidgetLifeCycle/$title");
               },
-              child: const Text("Build Mechanism"),
+              child: const Text("Stateful Widget Life Cycle"),
             ),
             const SizedBox(height: 30),
 
@@ -36,7 +36,7 @@ class FlutterInBuilt extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 String title = "Inherited Model With Change Notifier";
-                context.pushNamed("inheritedModel", pathParameters: {"title": title});
+                context.pushNamed("inherited model", pathParameters: {"title": title});
               },
               child: const Text("Inherited Model"),
             ),
@@ -44,7 +44,7 @@ class FlutterInBuilt extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 String title = "Inherited Notifier With Change Notifier";
-                context.pushNamed("inheritedNotifier", queryParameters: {"title": title});
+                context.pushNamed("inherited notifier", queryParameters: {"title": title});
               },
               child: const Text("Inherited Notifier"),
             ),

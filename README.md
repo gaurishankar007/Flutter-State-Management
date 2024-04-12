@@ -1,9 +1,12 @@
-# Flutter State Management
+# Flutter State Management 🚀🚀🚀
 
 A Flutter State Management Project. 
 A Quick look through inside the state management solutions provided by flutter itself and packages.
 
-## Flutter In Built
+## Stateful Widget Life Cycle
+![Stateful Widget Life Cycle Visual Representation](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*53Y7sJmyhEbx4OJw.png)
+
+## Flutter In Built Solutions
 
 - Inherited Widget
     - Key Terms [InheritedWidget, dependOnInheritedWidgetOfExactType, updateShouldNotify]
@@ -16,7 +19,7 @@ A Quick look through inside the state management solutions provided by flutter i
     - Same as inherited widget, but rebuilds specific widgets only
     - It accepts aspect for determining only which widgets should be rebuild
 - Change Notifier
-    - Key Terms [ChangeNotifier, notify, ListenableBuilder]
+    - Key Terms [ChangeNotifier, notifyListeners, ListenableBuilder]
     - A listenable which can be notified
     - A listenable builder will rebuild the Widget
 - Value Notifier
@@ -29,7 +32,7 @@ A Quick look through inside the state management solutions provided by flutter i
     - Same as inherited widget but uses change notifier
     - Rebuilds the widgets whenever change notifier is called
 
-## Flutter Packages
+## Flutter Packages Solutions
 
 - Flutter Hooks
     - Key Terms [HookWidget, hooks (ex. useTextEditingController, useAnimationController)]
@@ -38,7 +41,7 @@ A Quick look through inside the state management solutions provided by flutter i
     - Reduces code duplications
     - Flexibility to create custom hooks
 - Provider
-    - Key Terms [Provider, ChangeNotifier, ChangeNotifierProvider, MultiProvider]
+    - Key Terms [Provider, ChangeNotifier, notifyListeners, ChangeNotifierProvider, MultiProvider]
     - Key Terms [Provider.of..., read, watch, select]
     - Providers should be provided at the top level so that child widgets can access it
     - context.read or Provider.of(context, listen: false) gets the provider but avoids widget rebuild
@@ -64,7 +67,7 @@ A Quick look through inside the state management solutions provided by flutter i
     - Key Terms [Bloc, Cubit, State, Event, transformer, emit, add]
     - Key Terms [BlocProvider, MultiBlocProvider, BlocBuilder, buildWhen]
     - Key Terms [BlocListener, listenWhen, BlocSelector, selector]
-    - Key Terms [read, watch, select]
+    - Key Terms [BlocProvider.of..., read, watch, select]
     - Bloc/Cubit are logics, events (only in bloc) are actions, and states are results which are shown in the UI
     - context.read or BloProvider.of(context, listen: false) gets the bloc but avoids widget rebuild
     - context.watch or BloProvider.of(context, listen: true) gets the bloc and rebuilds the widget
@@ -95,4 +98,4 @@ A Quick look through inside the state management solutions provided by flutter i
     - Role of generics on extension
 
 This project is not for a complete beginners.
-You should have at least a good knowledge of dart and flutter framework.
+You should have a good knowledge of dart and flutter framework.

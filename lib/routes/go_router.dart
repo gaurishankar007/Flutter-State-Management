@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../Inherited_model/pages/inherited_model_page.dart';
 import '../Inherited_widget/pages/inherited_widget_page.dart';
 import '../bloc/pages/bloc_page.dart';
-import '../build_mechanism/build_mechanism.dart';
+import '../stateful_widget/stateful_widget_life_cycle.dart';
 import '../hook_widget/hook_example1.dart';
 import '../hook_widget/hook_example2.dart';
 import '../hook_widget/hook_example3.dart';
@@ -74,16 +74,16 @@ GoRouter get goRouter {
 
       /// <====== State Management With In Built Flutter Methods And Functions ======>
       GoRoute(
-        path: "/buildMechanism/:title",
-        name: "buildMechanism",
+        path: "/statefulWidgetLifeCycle/:title",
+        name: "stateful widget life cycle",
         builder: (context, state) {
           final String title = state.pathParameters["title"] ?? "";
-          return BuildMechanism(title: title);
+          return StatefulWidgetLifeCycle(title: title);
         },
       ),
       GoRoute(
         path: "/inheritedWidget/:title",
-        name: "inheritedWidget",
+        name: "inherited widget",
         builder: (context, state) {
           final String title = state.pathParameters["title"] ?? "";
           return InheritedWidgetPage(title: title);
@@ -91,7 +91,7 @@ GoRouter get goRouter {
       ),
       GoRoute(
         path: "/inheritedModel/:title",
-        name: "inheritedModel",
+        name: "inherited model",
         builder: (context, state) {
           final String title = state.pathParameters["title"] ?? "";
           return InheritedModelPage(title: title);
@@ -99,7 +99,7 @@ GoRouter get goRouter {
       ),
       GoRoute(
         path: "/inheritedNotifier",
-        name: "inheritedNotifier",
+        name: "inherited notifier",
         builder: (context, state) {
           final String title = state.uri.queryParameters["title"] ?? "";
           return InheritedNotifierPage(title: title);
