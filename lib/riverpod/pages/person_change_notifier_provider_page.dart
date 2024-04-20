@@ -15,7 +15,7 @@ class PersonChangeNotifierProviderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text("State Notifier Provider")),
+      appBar: AppBar(title: const Text("Change Notifier Provider")),
       body: SafeArea(
         child: Column(
           children: [
@@ -94,7 +94,7 @@ class PersonChangeNotifierProviderPage extends ConsumerWidget {
               TextFormField(
                 controller: ageController,
                 decoration: const InputDecoration(
-                  label: Text("Enter namer here.."),
+                  label: Text("Enter age here.."),
                   enabledBorder: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                 ),
