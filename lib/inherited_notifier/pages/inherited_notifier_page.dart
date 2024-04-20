@@ -29,7 +29,8 @@ class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
           notifier: notifier,
           child: Builder(
             builder: (context) {
-              final color = ColorInheritedNotifier.of(context);
+              final color = ColorInheritedNotifier.ofColor(context);
+              final colors = ColorInheritedNotifier.ofColors(context);
               log("Color updated");
 
               return Column(
@@ -37,6 +38,38 @@ class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
                 children: [
                   const SizedBox(width: double.maxFinite),
                   const Text("Inherited Notifier is provided in this page."),
+                  const SizedBox(height: 50),
+                  const Text("Available Colors"),
+                  SizedBox(
+                    width: 300,
+                    child: TextFormField(
+                      onChanged: (value) => notifier.searchColor(value),
+                      decoration: const InputDecoration(
+                        hintText: "Search Colors",
+                        enabledBorder: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        for (int i = 0; i < colors.length; i++)
+                          Container(
+                            height: 80,
+                            width: 80,
+                            decoration: BoxDecoration(
+                              color: colors[i],
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          )
+                      ],
+                    ),
+                  ),
                   const SizedBox(height: 50),
                   Container(height: 200, width: 200, color: color),
                   const SizedBox(height: 50),

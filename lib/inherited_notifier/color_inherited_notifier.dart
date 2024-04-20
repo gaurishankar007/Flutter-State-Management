@@ -9,12 +9,22 @@ class ColorInheritedNotifier extends InheritedNotifier<ColorChangeNotifier> {
     required super.child,
   });
 
-  static Color of(BuildContext context) {
+  static ColorInheritedNotifier? of(BuildContext context) {
     final inheritedNotifier = context.dependOnInheritedWidgetOfExactType<ColorInheritedNotifier>();
+    return inheritedNotifier;
+  }
 
-    assert(inheritedNotifier != null, "ColorInheritedNotifier is not found in the context");
+  static Color ofColor(BuildContext context) {
+    final inheritedNotifier = of(context);
 
-    /// if inheritedNotifier or notifier of it is null, it returns 0
     return inheritedNotifier?.notifier?.color ?? Colors.black;
   }
+
+  static List<Color> ofColors(BuildContext context) {
+    final inheritedNotifier = of(context);
+
+    return inheritedNotifier?.notifier?.availableColors ?? [];
+  }
+
+ 
 }
