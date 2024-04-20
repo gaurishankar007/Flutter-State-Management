@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'notifier/film_state_notifier.dart';
@@ -23,6 +25,10 @@ final countStateProvider2 = StateProvider.autoDispose<int>((ref) => 0);
 
 /// Stream Provider
 final countStreamProvider = StreamProvider.autoDispose.family<int, int>((ref, initialValue) {
+  ref.onDispose(() {
+    log("Count Stream Provider Disposed");
+  });
+
   final repository = ref.read(repositoryProvider);
   return repository.getCountStream(initialValue);
 });
