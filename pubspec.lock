@@ -155,7 +155,7 @@ packages:
     source: hosted
     version: "13.2.1"
   integration_test:
-    dependency: "direct main"
+    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
