@@ -9,6 +9,20 @@ A Quick look through inside the state management solutions provided by flutter i
 
 ## Flutter In Built Solutions
 
+- `Stateful Widget`
+  - Create State
+  - Mounted = `true`
+  - Init State
+  - Did Change Dependencies (Builds the widget again after triggered by dependencies)
+  - Dirty = `true` (Triggers build)
+  - Build
+  - Dirty = `false`
+  - Did Update Widget (Triggers dirty = `true`)
+  - Set State (Triggers dirty = `true`)
+  - Deactivate (Is triggered when removed/changed in new frame with comparison to previous frame)
+  - Activate (Is triggered when widget location is changed in widget tree)
+  - Dispose (Is triggered when removed from widget tree)
+  - Mounted = `false`
 - `Inherited Widget`
   - Key Terms [InheritedWidget, dependOnInheritedWidgetOfExactType, updateShouldNotify]
   - Should be provided at the top level in the widget tree

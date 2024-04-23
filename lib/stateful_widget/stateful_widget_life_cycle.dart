@@ -2,6 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
+import 'count.dart';
+import 'text1.dart';
+import 'text2.dart';
+import 'text3.dart';
+import 'text4.dart';
+
 class StatefulWidgetLifeCycle extends StatefulWidget {
   final String title;
   const StatefulWidgetLifeCycle({super.key, required this.title});
@@ -13,6 +19,12 @@ class StatefulWidgetLifeCycle extends StatefulWidget {
 class _StatefulWidgetLifeCycleState extends State<StatefulWidgetLifeCycle> {
   int count = 0;
   String title = "Text1 Widget: It will be built multiple times.";
+  bool swapText3 = true;
+
+  /// GlobalKey to access the state of Text3 widget.
+  /// This is used to demonstrate the lifecycle of Text3 widget.
+  /// Using UniqueKey will not work as the activate will not be called.
+  GlobalKey<Text3State> text3Key = GlobalKey<Text3State>();
 
   @override
   void initState() {
@@ -51,117 +63,88 @@ class _StatefulWidgetLifeCycleState extends State<StatefulWidgetLifeCycle> {
             Text("Count: ${count.toString()}"),
             const SizedBox(height: 20, width: double.maxFinite),
 
-            // Separate Widgets
+            // ----------- Separate Widgets -----------
             Count(count: count),
             const SizedBox(height: 10),
             Text1(title: title),
             const SizedBox(height: 10),
             const Text2(text2Title: "Text2 Widget: It will not be built multiple times."),
             const SizedBox(height: 10),
-            const Text3(),
-            // End of New Widgets
+            // Changing location of Text3 widget in the widget tree.
+            // It will is be deactivated at first and then activated
+            // when it is built again because of the global state key.
+            // If it was not rebuilt with the same global state key,
+            // then dispose will be called instead of activate.
+            swapText3
+                ? Text3(key: text3Key)
+                : Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Text3(key: text3Key),
+                  ),
+            const SizedBox(height: 10),
+            const Text4(),
+            // ----------- End of Separate Widgets -----------
 
             const SizedBox(height: 30),
-            const Text("Notes."),
-            const SizedBox(height: 5),
-            const Text(
-              "1. Constant widget will not be rebuilt.",
-              style: TextStyle(color: Colors.green),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () => setState(() => count++),
+                  child: const Text("Increment Count"),
+                ),
+                ElevatedButton(
+                  onPressed: () => setState(() => swapText3 = !swapText3),
+                  child: const Text("Toggle Text3 Location"),
+                ),
+              ],
             ),
-            const Text(
-              "2. `didUpdateWidget` of child (Non-constant) is called after setState on parent is called.",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.green),
+            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Notes."),
+                  SizedBox(height: 5),
+                  Text(
+                    "1. Constant widget will not be rebuilt.",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "3. `didChangeDependencies` of child widget is called "
+                    "when the dependency's value is changed "
+                    "(i.e. MediaQuery, ThemeData, InheritedWidget, etc.)",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "3. `didUpdateWidget` of non-constant child widget is called "
+                    "after setState on parent widget is called.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "4. `activate` of child widget is called "
+                    "when it is rebuilt with the same global state key "
+                    "in different location of the parent widget (widget tree) ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ],
+              ),
             )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => count++),
-        child: const Icon(Icons.add_rounded),
-      ),
     );
-  }
-}
-
-class Count extends StatefulWidget {
-  final int count;
-  const Count({super.key, required this.count});
-
-  @override
-  State<Count> createState() => _CountState();
-}
-
-class _CountState extends State<Count> {
-  @override
-  void didUpdateWidget(covariant Count oldWidget) {
-    if (oldWidget.count != widget.count) {
-      log("didUpdateWidget on Count due to count change.");
-    }
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    log("Count Rebuilt");
-
-    return Text("Count Widget: ${widget.count.toString()}");
-  }
-}
-
-class Text1 extends StatefulWidget {
-  final String title;
-  const Text1({super.key, required this.title});
-
-  @override
-  State<Text1> createState() => _Text1State();
-}
-
-class _Text1State extends State<Text1> {
-  @override
-  void didUpdateWidget(covariant Text1 oldWidget) {
-    log("didUpdateWidget on Text1 deu to reassign of title.");
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    log("Text1 Rebuilt");
-
-    return Text(widget.title);
-  }
-}
-
-class Text2 extends StatefulWidget {
-  final String text2Title;
-  const Text2({super.key, required this.text2Title});
-
-  @override
-  State<Text2> createState() => _Text2State();
-}
-
-class _Text2State extends State<Text2> {
-  @override
-  void didUpdateWidget(covariant Text2 oldWidget) {
-    log("didUpdateWidget on Text2.");
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    log("Text2 Rebuilt");
-
-    return Text(widget.text2Title);
-  }
-}
-
-class Text3 extends StatelessWidget {
-  const Text3({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    log("Text3 Rebuilt");
-
-    return const Text("Text3 Widget: It wii not be built multiple times.");
   }
 }
