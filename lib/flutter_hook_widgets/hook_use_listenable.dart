@@ -23,12 +23,12 @@ class CountDown extends ValueNotifier<int> {
   }
 }
 
-class HookExample3 extends HookWidget {
-  const HookExample3({super.key});
+class HookUseListenable extends HookWidget {
+  const HookUseListenable({super.key});
 
   @override
   Widget build(BuildContext context) {
-    log("Hook Example3");
+    log("Hook UseListenable");
 
     /// Creating CountDown and holding is
     /// Avoiding recreation of CountDown after build functions run agains
@@ -38,6 +38,7 @@ class HookExample3 extends HookWidget {
     final notifier = useListenable(countDown); // This calls build function again
 
     return Scaffold(
+      appBar: AppBar(title: const Text("Hook UseListenable")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

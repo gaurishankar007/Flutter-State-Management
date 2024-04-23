@@ -59,7 +59,7 @@ class _StreamCombinationPageState extends State<StreamCombinationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Rx Combine Latest")),
+      appBar: AppBar(title: const Text("Rx Combining Streams")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

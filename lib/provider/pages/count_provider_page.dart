@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../count_provider.dart';
@@ -17,10 +16,7 @@ class CountProviderPage extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => CountProvider(),
       child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
-          title: Text(title),
-        ),
+        appBar: AppBar(title: Text(title)),
         body: const SafeArea(
           child: Column(
             children: [

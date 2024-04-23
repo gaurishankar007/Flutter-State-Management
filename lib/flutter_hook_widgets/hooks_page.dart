@@ -7,50 +7,51 @@ class HooksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Flutter Hooks")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Center(
               child: Text(
-                "Flutter hooks are stateless widget and manage states with hooks.",
+                "Flutter hooks are stateless widget with it's own hooks.",
                 textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample1"),
-              child: const Text("TextEditingController State"),
+              onPressed: () => context.push("/hookUseState"),
+              child: const Text("UseState"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample2"),
-              child: const Text("Future"),
+              onPressed: () => context.push("/hookUseFuture"),
+              child: const Text("UseFuture"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample3"),
-              child: const Text("Listenable"),
+              onPressed: () => context.push("/hookUseListenable"),
+              child: const Text("UseListenable"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample4"),
-              child: const Text("AnimationController ScrollController"),
+              onPressed: () => context.push("/hookUseAnimationController"),
+              child: const Text("UseAnimationController"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample5"),
-              child: const Text("StreamController"),
+              onPressed: () => context.push("/hookUseStreamController"),
+              child: const Text("UseStreamController"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample6"),
-              child: const Text("Reducer"),
+              onPressed: () => context.push("/hookUseReducer"),
+              child: const Text("UseReducer"),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.push("/hookExample7"),
-              child: const Text("AppLifecycleState"),
+              onPressed: () => context.push("/hookUseAppLifeCycleState"),
+              child: const Text("UseAppLifecycleState"),
             ),
           ],
         ),

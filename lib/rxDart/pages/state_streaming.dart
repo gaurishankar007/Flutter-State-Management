@@ -29,7 +29,7 @@ class _StateStreamingPageState extends State<StateStreamingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Behavior Subject Search State Streaming")),
+      appBar: AppBar(title: const Text("Search State Streaming")),
       body: SafeArea(
         child: Column(
           children: [

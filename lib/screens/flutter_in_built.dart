@@ -7,17 +7,21 @@ class FlutterInBuilt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const SizedBox.shrink(),
+        title: const Text("Flutter"),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("State Management With Flutter In Built Methods"),
             const SizedBox(width: double.maxFinite, height: 20),
 
             /// Push or Push Named will push a location to the page stack
             ElevatedButton(
               onPressed: () {
-                String title = "How build works in stateful widget";
+                String title = "Stateful Widget";
                 context.push("/statefulWidgetLifeCycle/$title");
               },
               child: const Text("Stateful Widget Life Cycle"),
@@ -27,7 +31,7 @@ class FlutterInBuilt extends StatelessWidget {
             /// Push or Push Named will push a location to the page stack
             ElevatedButton(
               onPressed: () {
-                String title = "Inherited Widget With Value Notifier";
+                String title = "Inherited Widget";
                 context.push("/inheritedWidget/$title");
               },
               child: const Text("Inherited Widget"),
@@ -35,7 +39,7 @@ class FlutterInBuilt extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                String title = "Inherited Model With Change Notifier";
+                String title = "Inherited Model";
                 context.pushNamed("inherited model", pathParameters: {"title": title});
               },
               child: const Text("Inherited Model"),
@@ -43,7 +47,7 @@ class FlutterInBuilt extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                String title = "Inherited Notifier With Change Notifier";
+                String title = "Inherited Notifier";
                 context.pushNamed("inherited notifier", queryParameters: {"title": title});
               },
               child: const Text("Inherited Notifier"),

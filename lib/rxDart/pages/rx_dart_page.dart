@@ -18,15 +18,15 @@ class RxDartPage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.push("/stringConcatenation"),
-              child: const Text("String Concatenation"),
+              onPressed: () => context.push("/streamConcatenation"),
+              child: const Text("Stream Concatenation"),
             ),
             const SizedBox(height: 30),
             const Text("Behavior Subject Functionalities"),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () => context.push("/stringStreaming"),
-              child: const Text("String Streaming"),
+              onPressed: () => context.push("/streamDebounceTime"),
+              child: const Text("Stream Debounce Time"),
             ),
             const SizedBox(height: 30, width: double.maxFinite),
             ElevatedButton(

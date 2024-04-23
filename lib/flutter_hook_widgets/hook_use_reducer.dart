@@ -56,15 +56,15 @@ UIState reducer(UIState oldState, UserAction? action) {
   }
 }
 
-class HookExample6 extends HookWidget {
-  const HookExample6({super.key});
+class HookUseReducer extends HookWidget {
+  const HookUseReducer({super.key});
 
   String get url =>
       "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
 
   @override
   Widget build(BuildContext context) {
-    dev.log("Hook Example6");
+    dev.log("Hook UseReducer");
 
     final store = useReducer<UIState, UserAction?>(
       reducer,
@@ -73,6 +73,7 @@ class HookExample6 extends HookWidget {
     ); // This calls build function again
 
     return Scaffold(
+      appBar: AppBar(title: const Text("Hook UseReducer")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

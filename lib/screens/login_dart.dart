@@ -23,14 +23,18 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         leading: const SizedBox.shrink(),
-        title: const Text("Login to navigate to provider page"),
+        title: const Text("Login"),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(loggedIn ? "You are logged in" : "You are not logged in"),
             const SizedBox(height: 10, width: double.maxFinite),
+            const Text("Log in to access provider page"),
+            const SizedBox(height: 20),
+            Text(loggedIn ? "You are logged in" : "You are not logged in"),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 setState(() => loggedIn = !loggedIn);

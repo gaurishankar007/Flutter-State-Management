@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../count_inherited_widget.dart';
 import '../count_value_notifier.dart';
@@ -20,10 +19,7 @@ class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: SafeArea(
         child: ValueListenableBuilder(
           valueListenable: notifier,

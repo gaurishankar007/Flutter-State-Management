@@ -7,11 +7,15 @@ class FlutterPackage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const SizedBox.shrink(),
+        title: const Text("Packages"),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("State Management With Packages"),
             const SizedBox(width: double.maxFinite, height: 20),
             ElevatedButton(
               onPressed: () => context.pushNamed("flutter hooks"),

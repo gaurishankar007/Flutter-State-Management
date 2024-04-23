@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HookExample1 extends HookWidget {
-  const HookExample1({super.key});
+class HookUseState extends HookWidget {
+  const HookUseState({super.key});
 
   @override
   Widget build(BuildContext context) {
-    log("Hook Example1");
+    log("Hook UseState");
     final controller = useTextEditingController();
     final text = useState(""); // This calls build function again
 
@@ -25,6 +25,7 @@ class HookExample1 extends HookWidget {
     );
 
     return Scaffold(
+      appBar: AppBar(title: const Text("Hook UseState")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
 
-class StringConcatenationPage extends StatefulWidget {
-  const StringConcatenationPage({super.key});
+class StreamConcatenationPage extends StatefulWidget {
+  const StreamConcatenationPage({super.key});
 
   @override
-  State<StringConcatenationPage> createState() => _StringConcatenationPageState();
+  State<StreamConcatenationPage> createState() => _StreamConcatenationPageState();
 }
 
-class _StringConcatenationPageState extends State<StringConcatenationPage> {
+class _StreamConcatenationPageState extends State<StreamConcatenationPage> {
   Stream<String> getNames(String filePath) {
     final names = rootBundle.loadString(filePath);
     final stream = Stream.fromFuture(names);
@@ -30,7 +30,7 @@ class _StringConcatenationPageState extends State<StringConcatenationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('String Concatenation with RxDart')),
+      appBar: AppBar(title: const Text('String Concatenation')),
       body: FutureBuilder<List<String>>(
         future: getAllNames().toList(),
         builder: (context, snapshot) {

@@ -4,15 +4,15 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HookExample5 extends HookWidget {
-  const HookExample5({super.key});
+class HookUseStreamController extends HookWidget {
+  const HookUseStreamController({super.key});
 
   String get url =>
       "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
 
   @override
   Widget build(BuildContext context) {
-    log("Hook Example5");
+    log("Hook UseStreamController");
 
     late final StreamController<double> controller;
     controller = useStreamController<double>(onListen: () {
@@ -20,6 +20,7 @@ class HookExample5 extends HookWidget {
     });
 
     return Scaffold(
+      appBar: AppBar(title: const Text("Hook UseStreamController")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

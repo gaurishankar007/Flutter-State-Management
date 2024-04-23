@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
-class StringStreamingPage extends StatefulWidget {
-  const StringStreamingPage({super.key});
+class StreamDebounceTimePage extends StatefulWidget {
+  const StreamDebounceTimePage({super.key});
 
   @override
-  State<StringStreamingPage> createState() => _StringStreamingPageState();
+  State<StreamDebounceTimePage> createState() => _StreamDebounceTimePageState();
 }
 
-class _StringStreamingPageState extends State<StringStreamingPage> {
+class _StreamDebounceTimePageState extends State<StreamDebounceTimePage> {
   late final BehaviorSubject<String> behaviorSubject;
 
   @override
@@ -26,7 +26,7 @@ class _StringStreamingPageState extends State<StringStreamingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Behavior Subject String")),
+      appBar: AppBar(title: const Text("Searching & debounce time")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

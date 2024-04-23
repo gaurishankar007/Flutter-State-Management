@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class HookExample2 extends HookWidget {
-  const HookExample2({super.key});
+class HookUseFuture extends HookWidget {
+  const HookUseFuture({super.key});
 
   Future<Image> getImage() async {
     String url =
@@ -18,7 +18,7 @@ class HookExample2 extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("Hook Example2");
+    log("Hook UseFuture");
 
     /// Creating future and holding the complex object [Image]
     final future = useMemoized<Future<Image>>(() => getImage());
@@ -27,6 +27,7 @@ class HookExample2 extends HookWidget {
     final snapshot = useFuture(future); // This calls build function again
 
     return Scaffold(
+      appBar: AppBar(title: const Text("Hook UseFuture")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

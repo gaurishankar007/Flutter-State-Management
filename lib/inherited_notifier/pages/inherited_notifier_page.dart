@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../color_change_notifier.dart';
 import '../color_inherited_notifier.dart';
@@ -20,10 +19,7 @@ class _InheritedNotifierPageState extends State<InheritedNotifierPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () => context.pop(), icon: const Icon(Icons.arrow_back)),
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: SafeArea(
         child: ColorInheritedNotifier(
           notifier: notifier,

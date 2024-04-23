@@ -4,15 +4,14 @@ import 'package:go_router/go_router.dart';
 import '../Inherited_model/pages/inherited_model_page.dart';
 import '../Inherited_widget/pages/inherited_widget_page.dart';
 import '../bloc/pages/bloc_page.dart';
-import '../stateful_widget/stateful_widget_life_cycle.dart';
-import '../hook_widget/hook_example1.dart';
-import '../hook_widget/hook_example2.dart';
-import '../hook_widget/hook_example3.dart';
-import '../hook_widget/hook_example4.dart';
-import '../hook_widget/hook_example5.dart';
-import '../hook_widget/hook_example6.dart';
-import '../hook_widget/hook_example7.dart';
-import '../hook_widget/hooks_page.dart';
+import '../flutter_hook_widgets/hook_use_app_life_cycle_state.dart';
+import '../flutter_hook_widgets/hook_use_animation_controller.dart';
+import '../flutter_hook_widgets/hook_use_future.dart';
+import '../flutter_hook_widgets/hook_use_listenable.dart';
+import '../flutter_hook_widgets/hook_use_reducer.dart';
+import '../flutter_hook_widgets/hook_use_state.dart';
+import '../flutter_hook_widgets/hook_use_stream_controller.dart';
+import '../flutter_hook_widgets/hooks_page.dart';
 import '../inherited_notifier/pages/inherited_notifier_page.dart';
 import '../provider/pages/count_provider_page.dart';
 import '../riverpod/pages/count_future_provider_page.dart';
@@ -25,13 +24,14 @@ import '../rxDart/pages/filter_streaming.dart';
 import '../rxDart/pages/rx_dart_page.dart';
 import '../rxDart/pages/state_streaming.dart';
 import '../rxDart/pages/stream_combination.dart';
-import '../rxDart/pages/string_concatenation.dart';
-import '../rxDart/pages/string_streaming.dart';
+import '../rxDart/pages/stream_concatenation.dart';
+import '../rxDart/pages/stream_debounce_time.dart';
 import '../rxDart/pages/text_field_validation.dart';
 import '../screens/flutter_in_built.dart';
 import '../screens/flutter_package.dart';
 import '../screens/home.dart';
 import '../screens/login_dart.dart';
+import '../stateful_widget/stateful_widget_life_cycle.dart';
 import 'go_router_observer.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -114,39 +114,39 @@ GoRouter get goRouter {
         builder: (context, state) => const HooksPage(),
       ),
       GoRoute(
-        path: "/hookExample1",
-        name: "hook example1",
-        builder: (context, state) => const HookExample1(),
+        path: "/hookUseState",
+        name: "hook useState",
+        builder: (context, state) => const HookUseState(),
       ),
       GoRoute(
-        path: "/hookExample2",
-        name: "hook example2",
-        builder: (context, state) => const HookExample2(),
+        path: "/hookUseFuture",
+        name: "hook useFuture",
+        builder: (context, state) => const HookUseFuture(),
       ),
       GoRoute(
-        path: "/hookExample3",
-        name: "hook example3",
-        builder: (context, state) => const HookExample3(),
+        path: "/hookUseListenable",
+        name: "hook useListenable",
+        builder: (context, state) => const HookUseListenable(),
       ),
       GoRoute(
-        path: "/hookExample4",
-        name: "hook example4",
-        builder: (context, state) => const HookExample4(),
+        path: "/hookUseAnimationController",
+        name: "hook useAnimationController",
+        builder: (context, state) => const HookUseAnimationController(),
       ),
       GoRoute(
-        path: "/hookExample5",
-        name: "hook example5",
-        builder: (context, state) => const HookExample5(),
+        path: "/hookUseStreamController",
+        name: "hook useStreamController",
+        builder: (context, state) => const HookUseStreamController(),
       ),
       GoRoute(
-        path: "/hookExample6",
-        name: "hook example6",
-        builder: (context, state) => const HookExample6(),
+        path: "/hookUseReducer",
+        name: "hook useReducer",
+        builder: (context, state) => const HookUseReducer(),
       ),
       GoRoute(
-        path: "/hookExample7",
-        name: "hook example7",
-        builder: (context, state) => const HookExample7(),
+        path: "/hookUseAppLifeCycleState",
+        name: "hook useAppLifeCycleState",
+        builder: (context, state) => const HookUseAppLifeCycleState(),
       ),
 
       /// <====== Provider ======>
@@ -210,14 +210,14 @@ GoRouter get goRouter {
         builder: (context, state) => const RxDartPage(),
       ),
       GoRoute(
-        path: "/stringConcatenation",
-        name: "string concatenation",
-        builder: (context, state) => const StringConcatenationPage(),
+        path: "/streamConcatenation",
+        name: "stream concatenation",
+        builder: (context, state) => const StreamConcatenationPage(),
       ),
       GoRoute(
-        path: "/stringStreaming",
-        name: "string streaming",
-        builder: (context, state) => const StringStreamingPage(),
+        path: "/streamDebounceTime",
+        name: "stream debounce time",
+        builder: (context, state) => const StreamDebounceTimePage(),
       ),
       GoRoute(
         path: "/stateStreaming",
