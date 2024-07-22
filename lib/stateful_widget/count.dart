@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -12,18 +11,28 @@ class Count extends StatefulWidget {
 }
 
 class _CountState extends State<Count> {
+  int count = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    count = widget.count;
+  }
+
   @override
   void didUpdateWidget(covariant Count oldWidget) {
+    log("didUpdateWidget on Count Widget.");
     if (oldWidget.count != widget.count) {
-      log("didUpdateWidget on Count due to count change.");
+      log("New count value assigned.");
+      setState(() => count = widget.count);
     }
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
-    log("Count Rebuilt");
+    log("Count Widget Build");
 
-    return Text("Count Widget: ${widget.count.toString()}");
+    return Text("Count Widget: $count");
   }
 }
