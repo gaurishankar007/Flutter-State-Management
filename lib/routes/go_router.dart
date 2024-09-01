@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../Inherited_model/pages/inherited_model_page.dart';
 import '../Inherited_widget/pages/inherited_widget_page.dart';
 import '../bloc/pages/bloc_page.dart';
-import '../flutter_hook_widgets/hook_use_app_life_cycle_state.dart';
 import '../flutter_hook_widgets/hook_use_animation_controller.dart';
+import '../flutter_hook_widgets/hook_use_app_life_cycle_state.dart';
 import '../flutter_hook_widgets/hook_use_future.dart';
 import '../flutter_hook_widgets/hook_use_listenable.dart';
 import '../flutter_hook_widgets/hook_use_reducer.dart';
@@ -13,6 +13,7 @@ import '../flutter_hook_widgets/hook_use_state.dart';
 import '../flutter_hook_widgets/hook_use_stream_controller.dart';
 import '../flutter_hook_widgets/hooks_page.dart';
 import '../inherited_notifier/pages/inherited_notifier_page.dart';
+import '../mobx/pages/mobx_page.dart';
 import '../provider/pages/count_provider_page.dart';
 import '../riverpod/pages/count_future_provider_page.dart';
 import '../riverpod/pages/count_state_provider_page.dart';
@@ -238,6 +239,13 @@ GoRouter get goRouter {
         path: "/textFieldValidation",
         name: "text field validation",
         builder: (context, state) => const TextFieldValidationPage(),
+      ),
+
+      /// <====== Mobx ======>
+      GoRoute(
+        path: "/mobx",
+        name: "mobx",
+        builder: (context, state) => const MobxPage(),
       ),
     ],
   );

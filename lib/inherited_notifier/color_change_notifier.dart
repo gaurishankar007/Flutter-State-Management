@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:state/inherited_notifier/debounce_time.dart';
+
+import 'debounce_time.dart';
 
 class ColorChangeNotifier extends ChangeNotifier {
   final debounceTime = DebounceTime(delay: const Duration(milliseconds: 1000));

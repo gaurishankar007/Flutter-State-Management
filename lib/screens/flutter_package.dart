@@ -46,6 +46,11 @@ class FlutterPackage extends StatelessWidget {
               onPressed: () => context.pushNamed("rxDart"),
               child: const Text("Rx Dart"),
             ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () => context.pushNamed("mobx"),
+              child: const Text("Mobx"),
+            ),
           ],
         ),
       ),

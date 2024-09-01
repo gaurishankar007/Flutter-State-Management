@@ -92,7 +92,7 @@ A Quick look through inside the state management solutions provided by flutter i
   - BlocListener listens to bloc's state to do tasks, and listenWhen filters listening
   - transformer helps to modifies the behavior of event stream, like providing delay while searching
 - `Rx Dart`
-  - Key Terms [PublicSubject, BehaviorSubject, ReplySubject]
+  - Key Terms [Observable, BehaviorSubject, ReplySubject]
   - Key Terms [Stream, Sink, StreamController, StreamSubscription]
   - Key Terms [combineLatest, merge, concatenate, zip]
   - Key Terms [debounceTime, fromCallable, asyncMap, switchMap, startWith, OnErrorReturnWith]
@@ -102,6 +102,13 @@ A Quick look through inside the state management solutions provided by flutter i
   - Validating text fields, handling errors, fetching api, adding events, emitting states
   - Displaying states based on the provided data
   - Changing state based on user action
+- `Mobx`
+  - Key Terms [Store, @observable, @action]
+  - Key Terms [ObservableList, ObservableFuture, ObservableStream]
+  - Key Terms [Observer, ReactionBuilder, autorun]
+  - Observer are the UI builders which will automatically rebuild whenever observables are changed
+  - observable can only be changed inside functions annotated with @action
+  - ReactionBuilder helps to inform UI of changes about the state
 
 ## Utility Resources
 
