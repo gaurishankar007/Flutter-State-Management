@@ -40,8 +40,13 @@ class RiverpodPage extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.push("/stateNotifierProvider"),
-              child: const Text("State Notifier Provider"),
+              onPressed: () => context.push("/fimStateNotifierProvider"),
+              child: const Text("Film State Notifier Provider"),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () => context.push("/personStateNotifierProvider"),
+              child: const Text("Person State Notifier Provider"),
             ),
           ],
         ),

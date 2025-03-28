@@ -12,7 +12,7 @@ class FilmStateNotifierProviderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("State Notifier Provider")),
+      appBar: AppBar(title: const Text("Film State Notifier Provider")),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

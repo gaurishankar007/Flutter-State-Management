@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'notifier/film_state_notifier.dart';
 import 'notifier/person_change_notifier.dart';
+import 'notifier/person_state_notifier.dart';
 import 'repository/repository.dart';
 
 /// Provider
@@ -38,6 +39,8 @@ final personChangeNotifierProvider =
     ChangeNotifierProvider.autoDispose<PersonChangeNotifier>((ref) => PersonChangeNotifier());
 
 /// State Notifier Provider
+final personStateNotifierProvider =
+    StateNotifierProvider<PersonStateNotifier, PersonDetail>((ref) => PersonStateNotifier());
 final filmStateNotifierProvider =
     StateNotifierProvider<FilmStateNotifier, List<Film>>((ref) => FilmStateNotifier());
 final favoriteStatusStateProvider = StateProvider<FavoriteStatus>((ref) => FavoriteStatus.all);

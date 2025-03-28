@@ -20,6 +20,7 @@ import '../riverpod/pages/count_state_provider_page.dart';
 import '../riverpod/pages/count_stream_provider_page.dart';
 import '../riverpod/pages/film_state_notifier_provider_page.dart';
 import '../riverpod/pages/person_change_notifier_provider_page.dart';
+import '../riverpod/pages/person_state_notifier_provider_page.dart';
 import '../riverpod/pages/riverpod_page.dart';
 import '../rxDart/pages/filter_streaming.dart';
 import '../rxDart/pages/rx_dart_page.dart';
@@ -199,9 +200,14 @@ GoRouter get goRouter {
         builder: (context, state) => PersonChangeNotifierProviderPage(),
       ),
       GoRoute(
-        path: "/stateNotifierProvider",
-        name: "state notifier provider",
+        path: "/fimStateNotifierProvider",
+        name: "film state notifier provider",
         builder: (context, state) => const FilmStateNotifierProviderPage(),
+      ),
+      GoRoute(
+        path: "/personStateNotifierProvider",
+        name: "person state notifier provider",
+        builder: (context, state) => const PersonStateNotifierProviderPage(),
       ),
 
       /// <====== Rx Dart ======>
