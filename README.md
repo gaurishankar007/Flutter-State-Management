@@ -3,65 +3,67 @@
 A Flutter State Management Project.
 A Quick look through inside the state management solutions provided by Flutter itself and packages.
 
-## Table of Contents 📌
+# Table of Contents 📌
 
-- [Stateful Widget Life Cycle](#stateful-widget-life-cycle)
-- [State Management Solutions](#state-management-solutions)
-  - [Overview of State Management Approaches](#overview-of-state-management-approaches)
-    - [1. Imperative Solutions](#1-imperative-solutions)
-    - [2. Declarative Solutions](#2-declarative-solutions)
-    - [3. Reactive Solutions](#3-reactive-solutions)
-  - [Differences and When to Use Which](#differences-and-when-to-use-which)
-    - [When to Use:](#when-to-use)
-- [Categorized State Management Options](#categorized-state-management-options)
-  - [Imperative Solutions](#imperative-solutions)
-  - [Declarative Solutions](#declarative-solutions)
-  - [Reactive Solutions](#reactive-solutions)
-  - [Declarative/Reactive Solutions](#declarativereactive-solutions)
-- [Thread Safety in Flutter](#thread-safety-in-flutter)
-- [Thread Safety in Different Flutter State Management Solutions](#thread-safety-in-different-flutter-state-management-solutions)
-  - [1. Flutter Bloc/Cubit](#1-flutter-bloccubit)
-    - [Thread Safety in Bloc:](#thread-safety-in-bloc)
-    - [Example of Thread Safety in Bloc:](#example-of-thread-safety-in-bloc)
-  - [2. MobX in Flutter](#2-mobx-in-flutter)
-    - [Thread Safety in MobX:](#thread-safety-in-mobx)
-    - [Example of Thread Safety in MobX:](#example-of-thread-safety-in-mobx)
-  - [3. Riverpod in Flutter](#3-riverpod-in-flutter)
-    - [Thread Safety in Riverpod:](#thread-safety-in-riverpod)
-    - [Example of Thread Safety in Riverpod:](#example-of-thread-safety-in-riverpod)
-  - [4. Provider in Flutter](#4-provider-in-flutter)
-    - [Thread Safety in Provider:](#thread-safety-in-provider)
-    - [Example of Thread Safety in Provider:](#example-of-thread-safety-in-provider)
-  - [Summary Table of Thread Safety Across State Management Solutions](#summary-table-of-thread-safety-across-state-management-solutions)
-  - [Conclusion](#conclusion)
-- [Thread Safety Issues in Different Flutter State Management Solutions](#thread-safety-issues-in-different-flutter-state-management-solutions)
-  - [1. Bloc/Cubit – Race Condition Issue](#1-bloccubit--race-condition-issue)
-    - [Problem:](#problem)
-    - [Example of Race Condition in Bloc](#example-of-race-condition-in-bloc)
-    - [Issue Explanation](#issue-explanation)
-    - [Solution](#solution)
-      - [Use current state reference inside async calls:](#use-current-state-reference-inside-async-calls)
-  - [2. MobX – UI Freezing Due to Heavy Computation](#2-mobx--ui-freezing-due-to-heavy-computation)
-    - [Problem:](#problem-1)
-    - [Example of UI Freeze in MobX](#example-of-ui-freeze-in-mobx)
-    - [Issue Explanation](#issue-explanation-1)
-    - [Solution](#solution-1)
-      - [Move heavy work to an async function:](#move-heavy-work-to-an-async-function)
-  - [3. Riverpod – Asynchronous Inconsistent State Update](#3-riverpod--asynchronous-inconsistent-state-update)
-    - [Problem:](#problem-2)
-    - [Example of Inconsistent State in Riverpod](#example-of-inconsistent-state-in-riverpod)
-    - [Issue Explanation](#issue-explanation-2)
-    - [Solution](#solution-2)
-      - [Use state reference inside async calls:](#use-state-reference-inside-async-calls)
-  - [4. Provider – State Not Updating Properly](#4-provider--state-not-updating-properly)
-    - [Problem:](#problem-3)
-    - [Example of State Not Updating Properly in Provider](#example-of-state-not-updating-properly-in-provider)
-    - [Issue Explanation](#issue-explanation-3)
-    - [Solution](#solution-3)
-      - [Call notifyListeners() immediately and update the state inside Future:](#call-notifylisteners-immediately-and-update-the-state-inside-future)
-  - [Summary Table of Issues \& Fixes](#summary-table-of-issues--fixes)
-  - [Conclusion](#conclusion-1)
-- [Utility Resources](#utility-resources)
+- [Flutter State Management 🚀🚀🚀](#flutter-state-management-)
+- [Table of Contents 📌](#table-of-contents-)
+  - [Stateful Widget Life Cycle](#stateful-widget-life-cycle)
+  - [State Management Solutions](#state-management-solutions)
+    - [Overview of State Management Approaches](#overview-of-state-management-approaches)
+      - [1. Imperative Solutions](#1-imperative-solutions)
+      - [2. Declarative Solutions](#2-declarative-solutions)
+      - [3. Reactive Solutions](#3-reactive-solutions)
+    - [Differences and When to Use Which](#differences-and-when-to-use-which)
+      - [When to Use:](#when-to-use)
+  - [Categorized State Management Options](#categorized-state-management-options)
+    - [Imperative Solutions](#imperative-solutions)
+    - [Declarative Solutions](#declarative-solutions)
+    - [Reactive Solutions](#reactive-solutions)
+    - [Declarative/Reactive Solutions](#declarativereactive-solutions)
+  - [Thread Safety in Flutter](#thread-safety-in-flutter)
+  - [Thread Safety in Different Flutter State Management Solutions](#thread-safety-in-different-flutter-state-management-solutions)
+    - [1. Flutter Bloc/Cubit](#1-flutter-bloccubit)
+      - [Thread Safety in Bloc:](#thread-safety-in-bloc)
+      - [Example of Thread Safety in Bloc:](#example-of-thread-safety-in-bloc)
+    - [2. MobX in Flutter](#2-mobx-in-flutter)
+      - [Thread Safety in MobX:](#thread-safety-in-mobx)
+      - [Example of Thread Safety in MobX:](#example-of-thread-safety-in-mobx)
+    - [3. Riverpod in Flutter](#3-riverpod-in-flutter)
+      - [Thread Safety in Riverpod:](#thread-safety-in-riverpod)
+      - [Example of Thread Safety in Riverpod:](#example-of-thread-safety-in-riverpod)
+    - [4. Provider in Flutter](#4-provider-in-flutter)
+      - [Thread Safety in Provider:](#thread-safety-in-provider)
+      - [Example of Thread Safety in Provider:](#example-of-thread-safety-in-provider)
+    - [Summary Table of Thread Safety Across State Management Solutions](#summary-table-of-thread-safety-across-state-management-solutions)
+    - [Conclusion](#conclusion)
+  - [Thread Safety Issues in Different Flutter State Management Solutions](#thread-safety-issues-in-different-flutter-state-management-solutions)
+    - [1. Bloc/Cubit – Race Condition Issue](#1-bloccubit--race-condition-issue)
+      - [Problem:](#problem)
+      - [Example of Race Condition in Bloc](#example-of-race-condition-in-bloc)
+      - [Issue Explanation](#issue-explanation)
+      - [Solution](#solution)
+        - [Use current state reference inside async calls:](#use-current-state-reference-inside-async-calls)
+    - [2. MobX – UI Freezing Due to Heavy Computation](#2-mobx--ui-freezing-due-to-heavy-computation)
+      - [Problem:](#problem-1)
+      - [Example of UI Freeze in MobX](#example-of-ui-freeze-in-mobx)
+      - [Issue Explanation](#issue-explanation-1)
+      - [Solution](#solution-1)
+        - [Move heavy work to an async function:](#move-heavy-work-to-an-async-function)
+    - [3. Riverpod – Asynchronous Inconsistent State Update](#3-riverpod--asynchronous-inconsistent-state-update)
+      - [Problem:](#problem-2)
+      - [Example of Inconsistent State in Riverpod](#example-of-inconsistent-state-in-riverpod)
+      - [Issue Explanation](#issue-explanation-2)
+      - [Solution](#solution-2)
+        - [Use state reference inside async calls:](#use-state-reference-inside-async-calls)
+    - [4. Provider – State Not Updating Properly](#4-provider--state-not-updating-properly)
+      - [Problem:](#problem-3)
+      - [Example of State Not Updating Properly in Provider](#example-of-state-not-updating-properly-in-provider)
+      - [Issue Explanation](#issue-explanation-3)
+      - [Solution](#solution-3)
+        - [Call notifyListeners() immediately and update the state inside Future:](#call-notifylisteners-immediately-and-update-the-state-inside-future)
+    - [Summary Table of Issues \& Fixes](#summary-table-of-issues--fixes)
+    - [Conclusion](#conclusion-1)
+  - [**Utility Resources**](#utility-resources)
 
 ## Stateful Widget Life Cycle
 
@@ -83,30 +85,30 @@ A Quick look through inside the state management solutions provided by Flutter i
 
 ---
 
-## **State Management Solutions**
+## State Management Solutions
 
-### **Overview of State Management Approaches**
+### Overview of State Management Approaches
 
 State management can be broadly categorized into three approaches based on how state is handled:
 
-#### 1. **Imperative Solutions**
+#### 1. Imperative Solutions
 
 - Focus on explicitly instructing the framework on how to update the UI.
 - State changes trigger direct updates to the widget tree.
 - Example: **setState**, **ChangeNotifier**, **ValueNotifier**.
 
-#### 2. **Declarative Solutions**
+#### 2. Declarative Solutions
 
 - Emphasize declaring the UI as a function of the state.
 - State changes automatically propagate to the UI.
 - Example: **InheritedWidget**, **InheritedModel**, **Inherited Notifier**, **Provider**, **Riverpod**.
 
-#### 3. **Reactive Solutions**
+#### 3. Reactive Solutions
 
 - Focus on reacting to changes in the state by observing streams or observables.
 - Example: **Flutter Bloc**, **RxDart**, **MobX**, **Riverpod**.
 
-### **Differences and When to Use Which**
+### Differences and When to Use Which
 
 | **Aspect**         | **Imperative**                          | **Declarative**                                                         | **Reactive**                                |
 | ------------------ | --------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------- |
@@ -116,7 +118,7 @@ State management can be broadly categorized into three approaches based on how s
 | **Best For**       | Simple state management                 | Medium complexity apps                                                  | Complex apps with highly dynamic data flows |
 | **Examples**       | setState, ChangeNotifier, ValueNotifier | InheritedWidget, InheritedModel, Inherited Notifier, Provider, Riverpod | Bloc, RxDart, MobX, Riverpod                |
 
-#### **When to Use:**
+#### When to Use:
 
 - **Imperative**: Use for small-scale, straightforward applications with minimal state.
 - **Declarative**: Use for medium complexity apps requiring clear and manageable state propagation.
@@ -124,9 +126,9 @@ State management can be broadly categorized into three approaches based on how s
 
 ---
 
-## **Categorized State Management Options**
+## Categorized State Management Options
 
-### **Imperative Solutions**
+### Imperative Solutions
 
 - **`setState`**
 
@@ -148,7 +150,7 @@ State management can be broadly categorized into three approaches based on how s
 
 ---
 
-### **Declarative Solutions**
+### Declarative Solutions
 
 - **`Inherited Widget`**
 
@@ -177,7 +179,7 @@ State management can be broadly categorized into three approaches based on how s
 
 ---
 
-### **Reactive Solutions**
+### Reactive Solutions
 
 - **`Flutter Bloc`**
 
@@ -199,7 +201,7 @@ State management can be broadly categorized into three approaches based on how s
 
 ---
 
-### **Declarative/Reactive Solutions**
+### Declarative/Reactive Solutions
 
 - **`Riverpod`**
 
